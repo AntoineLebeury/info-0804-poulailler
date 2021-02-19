@@ -1,50 +1,26 @@
-const qs = require('querystring');
-const readline = require('readline-sync');
+const express = require('express');
+const fs = require('fs');
+const app = express();
+const data = require('./data.json'); //FIXME replace with database
 
-/* Vérification de l'adresse IP qui doit correspondre à l'adresse IP locale ou sur le réseau */
-var host = '';
-const regex_ip = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-while(!regex_ip.test(host)) {
-    host = readline.question('Adresse IP : ');
-}
+app.use(express.json());
 
-/* Définition du numéro de port */
-const port = 8080;
-const content = require('fs').readFileSync(__dirname + '/public/index.html', 'utf-8');
-
-var data;
-
-/**
- * Crée le serveur avec un handler permettant de gérer les requêtes HTTP
- * @param {HTTPRequest} req : requête HTTP
- * @param {HTTPResponse} res : réponse HTTP du serveur
- */
-const httpServer = require('http').createServer((req, res) => {
-    if(req.method === 'POST') {
-        // Récupération des données du corps de la requête
-        var body = '';
-        req.on('data', chunk => {
-            body += chunk.toString();
-            console.log(body)
-        });
-    } 
+app.get('/data', (req, res) => {
+  res.status(200).json(data);
 });
 
-const io = require('socket.io')(httpServer);
+app.get('/data/:id', (req, res) => { //FIXME replace id with time
+  const id = parseInt(req.params.id);
+  const d = data.find(d => d.id === id);
+  res.status(200).json(d);
+});
 
-io.on('connection', socket => {
-    setInterval(() => {
-        data_json = qs.parse(data);
-        socket.emit('receive_data', data_json);
-    }, 20);
-})
+app.post('/data', (req, res) => {
+  data.push(req.body);
+  fs.writeFile("./data.json", JSON.stringify(data), function(err) { if (err) { return console.log(err); } console.log("Filed saved");}); //FIXME add row in database
+  res.status(200).json(data);
+});
 
-/**
- * Mise en écoute du serveur à l'adresse et le port
- * passés en paramètres
- * @param {int} port : numéro de port
- * @param {string} host : adresse du serveur
- */
-httpServer.listen(port, host, () => {
-    console.log('Server is running on http://' + host + ':' + port);
+app.listen(8080, () => {
+  console.log('Server online');
 });
