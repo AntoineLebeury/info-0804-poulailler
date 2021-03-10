@@ -28,7 +28,7 @@ app.get('/data/:id', (req, res) => {
 });
 
 app.post('/data', (req, res) => {
-  client.query('INSERT INTO mesures VALUES (DEFAULT, (SELECT NOW()),' + req.body.temperature + ',' + req.body.pression + ',' + req.body.luminosite + ')', (err2, res2) => {
+  client.query('INSERT INTO mesures VALUES (DEFAULT, (SELECT TO_TIMESTAMP(\'' + req.body.timestamp + '\', \'YYYY-MM-DD HH24:MI:SS\')),' + req.body.temperature + ',' + req.body.pression + ',' + req.body.humidite + ')', (err2, res2) => {
     console.log(err2, res2);
   });
   res.status(200).json();

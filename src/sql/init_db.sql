@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS mesures (
   timestamp TIMESTAMP NOT NULL,
   temperature INT4,
   pression INT4,
-  luminosite INT4,
+  humidite INT4,
   CONSTRAINT pk_mesures PRIMARY KEY (mesure_id)
 );
 
