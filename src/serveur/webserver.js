@@ -1,7 +1,6 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const door = require('./door.json'); //FIXME replace with database
 const { Client } = require('pg')
 
 app.use(express.json());
@@ -15,7 +14,6 @@ const client = new Client({
 });
 client.connect();
 
-var data_all;
 app.get('/data', (req, res) => {
   client.query('SELECT * FROM mesures', (err2, res2) => {
     res.status(200).json(res2.rows);
@@ -33,25 +31,39 @@ app.post('/data', (req, res) => {
   client.query('INSERT INTO mesures VALUES (DEFAULT, (SELECT NOW()),' + req.body.temperature + ',' + req.body.pression + ',' + req.body.luminosite + ')', (err2, res2) => {
     console.log(err2, res2);
   });
-  res.status(200);
+  res.status(200).json();
 });
 
 app.get('/door', (req, res) => {
-  res.status(200).json(door);
+  client.query('SELECT timestamp, ouverte FROM porte WHERE timestamp = (SELECT MAX(timestamp) FROM porte)', (err2, res2) => {
+    res.status(200).json(res2.rows[0]);
+  });
 });
 
 app.get('/door/open', (req, res) => {
   console.log("Opening door");
-  door.push(JSON.parse('{"timestamp": "now", "status": "open"}'));
-  //FIXME insert in database instead
-  res.status(200).json();
+  //FIXME send open query to pi
+  query_res = 200
+  if (query_res == 200) {
+    client.query('INSERT INTO porte VALUES (DEFAULT, (SELECT NOW()), True)', (err2, res2) => {});
+    res.status(200).json();
+  }
+  else {
+    res.status(query_res).json();
+  }
 });
 
 app.get('/door/close', (req, res) => {
   console.log("Closing door");
-  door.push(JSON.parse('{"timestamp": "now", "status": "close"}'));
-  //FIXME insert in database with timestamp
-  res.status(200).json();
+  //FIXME send closing query to pi
+  query_res = 200
+  if (query_res == 200) {
+    client.query('INSERT INTO porte VALUES (DEFAULT, (SELECT NOW()), False)', (err2, res2) => {});
+    res.status(200).json();
+  }
+  else {
+    res.status(query_res).json();
+  }
 });
 
 app.listen(8080, () => {
