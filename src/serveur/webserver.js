@@ -1,25 +1,39 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const data = require('./data.json'); //FIXME replace with database
-const door = require('./door.json');
+const door = require('./door.json'); //FIXME replace with database
+const { Client } = require('pg')
 
 app.use(express.json());
 
+// Connection à la base de données
+const client = new Client({
+  user: 'info0804server',
+  host: 'localhost',
+  database: 'INFO-0804',
+  password: 'password',
+});
+client.connect();
+
+var data_all;
 app.get('/data', (req, res) => {
-  res.status(200).json(data);
+  client.query('SELECT * FROM mesures', (err2, res2) => {
+    res.status(200).json(res2.rows);
+  });
 });
 
-app.get('/data/:id', (req, res) => { //FIXME replace id with time
+app.get('/data/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  const d = data.find(d => d.id === id);
-  res.status(200).json(d);
+  client.query('SELECT * FROM mesures WHERE mesure_id =' + id, (err2, res2) => {
+    res.status(200).json(res2.rows[0]);
+  });
 });
 
 app.post('/data', (req, res) => {
-  data.push(req.body);
-  fs.writeFile("./data.json", JSON.stringify(data), function(err) { if (err) { return console.log(err); } console.log("Filed saved");}); //FIXME add row in database
-  res.status(200).json(data);
+  client.query('INSERT INTO mesures VALUES (DEFAULT, (SELECT NOW()),' + req.body.temperature + ',' + req.body.pression + ',' + req.body.luminosite + ')', (err2, res2) => {
+    console.log(err2, res2);
+  });
+  res.status(200);
 });
 
 app.get('/door', (req, res) => {
