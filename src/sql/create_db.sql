@@ -1,0 +1,3 @@
+CREATE USER info0804server PASSWORD 'password';
+ALTER USER info0804server WITH SUPERUSER;
+CREATE DATABASE info0804server OWNER info0804server;
