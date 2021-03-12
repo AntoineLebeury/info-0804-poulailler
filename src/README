@@ -1,0 +1,8 @@
+Installation necessaire:
+  Postgres
+  Nodejs
+  npm
+
+Lancer sql/create_db.sql
+Lancer sql/init_db.sql
+Executer "npm webservers.js" dans le dossier server

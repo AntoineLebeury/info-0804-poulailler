@@ -1,0 +1,13 @@
+{
+  "name": "projet_0804",
+  "version": "1.0.0",
+  "description": "the server side of our INFO-0804 project",
+  "main": "webserber.js",
+  "scripts": {
+    "start": "node webserver.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1"
+  }
+}
