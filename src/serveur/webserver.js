@@ -92,7 +92,7 @@ app.get('/door/close', (req, res) => {
 app.get('/camera', (req, res) => {
   // http request to get the port of the camera
   port = "8081";
-  res.status(200).json(rasp_ip + ":" + port);
+  res.status(200).json('{"ip":' + rasp_ip + ', "port":' + port + "}");
 });
 
 // start the server and listen on port 8080
