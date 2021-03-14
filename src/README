@@ -1,8 +1,9 @@
-Installation necessaire:
+Composantes necessaires:
   Postgres
   Nodejs
   npm
 
-Lancer sql/create_db.sql
-Lancer sql/init_db.sql
-Executer "npm webservers.js" dans le dossier server
+Executer le fichier sql/create_db.sql dans postgres
+Executer le fichier sql/init_db.sql dans postgres
+Dans le dossier serveur, executer npm i
+Dans le dossier serveur, executer npm webservers.js
