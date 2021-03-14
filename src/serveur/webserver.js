@@ -20,6 +20,7 @@ client.connect();
 // get at [adress]/data
 // Send all the sensor data stred in the database
 app.get('/data', (req, res) => {
+  console.log("get at /data");
   client.query('SELECT * FROM mesures', (err2, res2) => {
     res.status(200).json(res2.rows);
   });
@@ -28,6 +29,7 @@ app.get('/data', (req, res) => {
 // get at [adress]/data/[id]
 // Send the sensor data with the id precised in the url
 app.get('/data/:id', (req, res) => {
+  console.log("get at /data/[id]");
   const id = parseInt(req.params.id);
   client.query('SELECT * FROM mesures WHERE mesure_id =' + id, (err2, res2) => {
     res.status(200).json(res2.rows[0]);
@@ -37,6 +39,7 @@ app.get('/data/:id', (req, res) => {
 // post at [adresse]/data
 // Receive sensor data formated as a json and add them to the database
 app.post('/data', (req, res) => {
+  console.log("post at /data");
   client.query('INSERT INTO mesures VALUES (DEFAULT, (SELECT TO_TIMESTAMP(\'' + req.body.timestamp + '\', \'YYYY-MM-DD HH24:MI:SS\')),' + req.body.temperature + ',' + req.body.pression + ',' + req.body.humidite + ')', (err2, res2) => {
     console.log(err2, res2);
   });
@@ -46,6 +49,7 @@ app.post('/data', (req, res) => {
 // get at [adresse]/door
 // Send the last known state of the door and the time of the last operation
 app.get('/door', (req, res) => {
+  console.log("get at /door");
   client.query('SELECT timestamp, ouverte FROM porte WHERE timestamp = (SELECT MAX(timestamp) FROM porte)', (err2, res2) => {
     res.status(200).json(res2.rows[0]);
   });
@@ -90,6 +94,7 @@ app.get('/door/close', (req, res) => {
 // get at [adresse]/camera
 // Request the IP of the camera and send it
 app.get('/camera', (req, res) => {
+  console.log("get at /camera");
   // http request to get the port of the camera
   port = "8081";
   res.status(200).json('{"ip":' + rasp_ip + ', "port":' + port + "}");
