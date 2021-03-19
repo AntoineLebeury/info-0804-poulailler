@@ -15,11 +15,11 @@ porte_ouverte = 0
 class TestOuvertureFermeturePorte(unittest.TestCase):
     def testfermetureNormal(self):
         porte_ouverte=0
-        self.assertEqual(fermeture_porte(), "Porte ouverte")
+        self.assertEqual(fermeture_porte(), "Porte fermee)
     def testOuvertureDouble(self):
         porte_ouverte=0
         ouverture_porte()
-        self.assertEqual(fermeture_porte(), "Porte deja ouverte")
+        self.assertEqual(fermeture_porte(), "Porte deja fermer")
     def testOuvertureMauvaisNumeroVariable(self):
         porte_ouverte=3
         self.assertEqual(fermeture_porte(), "Une erreur est survenu")
