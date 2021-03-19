@@ -90,12 +90,10 @@ while True:
         
     #Si c'est trois il veux fermer la porte
     if requete.decode("utf-8")=="3":
-<<<<<<< HEAD
-        reponse = str(fermeture_porte())
-=======
+	reponse = str(fermeture_porte())
+
         reponse = str(fermeture_porte())
    
-import unittest2 as unittest
 class TestOuverturePorte(unittest.TestCase):
 	def testOuvertureNormal(self):
 		porte_ouverte=0
@@ -109,4 +107,3 @@ class TestOuverturePorte(unittest.TestCase):
 	def testOuvertureMauvaisNumeroVariable(self):
 		porte_ouverte=3
 		self.assertEqual(ouverture_porte(), "Une erreur est survenu")
->>>>>>> d75f8a9460e707f02b223854da7995dc5ed0bcf9

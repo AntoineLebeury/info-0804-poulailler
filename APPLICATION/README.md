@@ -46,5 +46,7 @@ démarrer sur le navigateur directement:
 
 # Test
 
+Les tests sont fait avec jest-expo https://www.npmjs.com/package/jest-expo
+
 Lancer les test pour ios et android:
 `npm test`
