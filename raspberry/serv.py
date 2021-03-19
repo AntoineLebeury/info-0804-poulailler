@@ -17,7 +17,7 @@ class TestFermeturePorte(unittest.TestCase):
         porte_ouverte=0
         self.assertEqual(fermeture_porte(), "Porte deja fermer")
     def testfermeturesuccess(self):
-        porte_ouverte=0
+        porte_ouverte=1
         self.assertEqual(fermeture_porte(), "Porte fermee")
     def testFermetureMauvaisStatueError(self):
         porte_ouverte=3
