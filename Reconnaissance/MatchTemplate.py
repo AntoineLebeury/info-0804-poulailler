@@ -1,8 +1,16 @@
 import numpy as np
 import cv2
+#Test si l'image est bien ouverte
+def test_read(image):
+    if image.size == 0:
+        print("L'image n'est pas ouverte")
+    else:
+        print("L'image est bien ouverte")
+        
 #importation de l'image de base et l'image a rechercher
 image = cv2.imread('poules.jpg')
 template = cv2.imread('poule.jpeg')
+test_read(image)
 
 
 #Conversion en nuance de gris
