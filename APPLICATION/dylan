@@ -1,0 +1,20 @@
+J'ai passé 2h pour configuré l’environnement de test vu que j'avais jamais fait ça et que l'application est en react-native.
+
+
+les renforcements
+ - Regarder si les requêtes envoyé par le client ont des réponses conforme à la documentation de l'api 
+ - vérifier les input de l’utilisateur
+
+
+Le véritable intérêt des tests sur ce genre d'application est l’interaction avec l'utilisateur (clique, swipe etc...) mais j'ai pas eu le temps de me documenter sur ce genre de test (d’ailleurs peut t'on encore nommer ca test unitaire ?) 
+
+
+Chaque composants est dans un dossier dans lequel est associer un fichier de test.
+
+Test unitaires:
+ - API : test fakeAccept, test fakeReject
+ - Pour toutes les pages: [Page] should render without throwing error and match Snapshot
+
+Les snapshot sont des fichier text qui représentent l'architecture du composant, si le développer fait des changement qui ne doivent pas changer l'architecture des désigne des pages le test ne passera pas 
+
+Les tests sont lancés en émulant un environnement android et ios
