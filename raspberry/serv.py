@@ -6,20 +6,23 @@ import requests
 import socket
 import unittest2 as unittest
 
+serveur = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(('',50000))
+serveur.listen(5)
+porte_ouverte = 0
 
 #Test unitaire
-class MyTest(unittest.TestCase):
-    def test(self):
-        self.assertEqual(fermeture_porte())
-
-#Le raspberry vas attendre des demandes de l'api pour certaines fonctions
-serveur = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serveur.bind(('', 50000))	# Écoute sur le port 50000
-serveur.listen(5)
-
-#Preparation de mon capteur
-#sense = SenseHat()
-porte_ouverte = 0
+class TestOuverturePorte(unittest.TestCase):
+    def testfermetureNormal(self):
+        porte_ouverte=0
+        self.assertEqual(fermeture_porte(), "Porte ouverte")
+    def testOuvertureDouble(self):
+        porte_ouverte=0
+        ouverture_porte()
+        self.assertEqual(fermeture_porte(), "Porte deja ouverte")
+    def testOuvertureMauvaisNumeroVariable(self):
+        porte_ouverte=3
+        self.assertEqual(fermeture_porte(), "Une erreur est survenu")
 
 
 #Fonction permettant de savoir le statu de la porte 0 = Ferme; 1 = ouverte
@@ -39,7 +42,7 @@ def ouverture_porte():
     #Sinon il y'a ut un problème avec la récupération du statue de la porte
     else:
         return "Une erreur est survenu"
-    
+
 #Fonction pour fermer la porte
 def fermeture_porte():
     #On verifie que la porte est bien ouverte
@@ -87,4 +90,23 @@ while True:
         
     #Si c'est trois il veux fermer la porte
     if requete.decode("utf-8")=="3":
+<<<<<<< HEAD
         reponse = str(fermeture_porte())
+=======
+        reponse = str(fermeture_porte())
+   
+import unittest2 as unittest
+class TestOuverturePorte(unittest.TestCase):
+	def testOuvertureNormal(self):
+		porte_ouverte=0
+		self.assertEqual(ouverture_porte(), "Porte ouverte")
+
+	def testOuvertureDouble(self):
+		porte_ouverte=0
+		ouverture_porte()
+		self.assertEqual(ouverture_porte(), "Porte deja ouverte")
+
+	def testOuvertureMauvaisNumeroVariable(self):
+		porte_ouverte=3
+		self.assertEqual(ouverture_porte(), "Une erreur est survenu")
+>>>>>>> d75f8a9460e707f02b223854da7995dc5ed0bcf9
