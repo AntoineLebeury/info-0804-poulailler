@@ -104,6 +104,6 @@ class TestOuverturePorte(unittest.TestCase):
 		ouverture_porte()
 		self.assertEqual(ouverture_porte(), "Porte deja ouverte")
 
-	def testOuvertureMauvaisNumeroVariable(self):
+	def testOuvertureStatusError(self):
 		porte_ouverte=3
 		self.assertEqual(ouverture_porte(), "Une erreur est survenu")
