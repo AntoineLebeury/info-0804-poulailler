@@ -31,7 +31,7 @@ def ouverture_porte():
     #Sinon il y'a ut un problème avec la récupération du statue de la porte
     else:
         return "Une erreur est survenu"
-    
+
 #Fonction pour fermer la porte
 def fermeture_porte():
     #On verifie que la porte est bien ouverte
@@ -80,4 +80,18 @@ while True:
     #Si c'est trois il veux fermer la porte
     if requete.decode("utf-8")=="3":
         reponse = str(fermeture_porte())
-    
+   
+import unittest2 as unittest
+class TestOuverturePorte(unittest.TestCase):
+	def testOuvertureNormal(self):
+		porte_ouverte=0
+		self.assertEqual(ouverture_porte(), "Porte ouverte")
+
+	def testOuvertureDouble(self):
+		porte_ouverte=0
+		ouverture_porte()
+		self.assertEqual(ouverture_porte(), "Porte deja ouverte")
+
+	def testOuvertureMauvaisNumeroVariable(self):
+		porte_ouverte=3
+		self.assertEqual(ouverture_porte(), "Une erreur est survenu")
