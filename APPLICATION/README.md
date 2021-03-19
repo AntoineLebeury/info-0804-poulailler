@@ -43,3 +43,8 @@ démarrer en dev:
 démarrer sur le navigateur directement:
 
 `npm run web`
+
+# Test
+
+Lancer les test pour ios et android:
+`npm test`
