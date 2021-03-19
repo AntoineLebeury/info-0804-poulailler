@@ -1,5 +1,18 @@
 import numpy as np
 import cv2
+#Test si l'image est bien ouverte
+def test_read(image):
+    if image.size == 0:
+        print("L'image n'est pas ouverte")
+    else:
+        print("L'image est bien ouverte")
+
+#Test si la fonction s'est correctement Executée.
+def test_match(result):
+    if result.size == 0:
+        print("La fonction n'a pas bien marché")
+    else:
+        print("La fonction s'est bien executée")
 #importation de l'image de base et l'image a rechercher
 image = cv2.imread('poules.jpg')
 template = cv2.imread('poule.jpeg')
