@@ -1,0 +1,2 @@
+Test: Vérification de la bonne ouverture de l'image
+      Vérification de la bonne execution de la fonction "MatchTemplate"
