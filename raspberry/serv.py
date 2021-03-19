@@ -13,10 +13,10 @@ porte_ouverte = 0
 
 #Test unitaire
 class TestFermeturePorte(unittest.TestCase):
-    def testfermetureNormal(self):
+    def testfermeturedenied(self):
         porte_ouverte=0
         self.assertEqual(fermeture_porte(), "Porte deja fermer")
-    def testfermetureDouble(self):
+    def testfermeturesuccess(self):
         porte_ouverte=0
         ouverture_porte()
         self.assertEqual(fermeture_porte(), "Porte fermee")
