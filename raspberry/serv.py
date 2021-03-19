@@ -12,7 +12,7 @@ serveur.listen(5)
 porte_ouverte = 0
 
 #Test unitaire
-class TestOuverturePorte(unittest.TestCase):
+class TestOuvertureFermeturePorte(unittest.TestCase):
     def testfermetureNormal(self):
         porte_ouverte=0
         self.assertEqual(fermeture_porte(), "Porte ouverte")
