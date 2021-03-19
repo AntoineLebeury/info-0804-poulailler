@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BDD should render without throwing error and match Snapshot 1`] = `
+Array [
+  " ",
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+      refreshControl={
+        <RefreshControlMock
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+    >
+      <RCTRefreshControl />
+      <View>
+        <View>
+          <Text>
+            Chargement...
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>,
+  " ",
+]
+`;

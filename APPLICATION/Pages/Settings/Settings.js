@@ -2,9 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useContext } from 'react';
 import {TextInput , Text, View, SafeAreaView, Switch, Button } from 'react-native';
 import 'react-native-gesture-handler';
-import styles from './Styles'
+import api from '../../Api/api'
+import styles from '../../Styles'
 
-import { ConfigContext, defaultConfig } from "./ConfigProvider";
+import { ConfigContext, defaultConfig } from "../../Config/ConfigProvider";
 
 /**
  * composant qui permet de modifier la configuration qui est paratger à travers toute l'application

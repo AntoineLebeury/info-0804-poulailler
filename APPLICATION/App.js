@@ -4,14 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react'
 import {Modal, Pressable, Text} from 'react-native';
 
-/* pages */
-import bd from './BDD'
-import Cam from './Cam'
-import Porte from './Porte'
-import Settings from './Settings'
+import {Porte, Cam, bd, Settings} from './Pages/Pages'
 
 /* config */
-import ConfigProvider from './ConfigProvider'
+import ConfigProvider from './Config/ConfigProvider'
 
 const Tab = createBottomTabNavigator();
 

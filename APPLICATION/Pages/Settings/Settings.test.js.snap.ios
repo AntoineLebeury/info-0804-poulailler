@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings should render without throwing error and match Snapshot 1`] = `
+Array [
+  " ",
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <Text>
+        Parametres
+      </Text>
+      <View>
+        <Text>
+          Protocol:
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          onChangeText={[Function]}
+          placeholder="http"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "height": 40,
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View>
+        <Text>
+          IP:
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          onChangeText={[Function]}
+          placeholder="127.0.0.1"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "height": 40,
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View>
+        <Text>
+          Port:
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          onChangeText={[Function]}
+          placeholder="80"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "height": 40,
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View>
+        <Text>
+          use fake requests: Utiliser des fausses requetes (desactiver pour envoyer les requetes vers l'api):
+        </Text>
+        <RCTSwitch
+          accessibilityRole="switch"
+          onChange={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#3e3e3e",
+              "borderRadius": 16,
+              "height": 31,
+              "width": 51,
+            }
+          }
+          value={false}
+        />
+      </View>
+      <Text>
+        Au cas où il y ai des bugs :
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessibilityState={Object {}}
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "margin": 8,
+                "textAlign": "center",
+              }
+            }
+          >
+            Remettre par dafaut
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>,
+  " ",
+]
+`;

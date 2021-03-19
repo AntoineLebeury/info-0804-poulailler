@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings should render without throwing error and match Snapshot 1`] = `
+Array [
+  " ",
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <Text>
+        Parametres
+      </Text>
+      <View>
+        <Text>
+          Protocol:
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          onChangeText={[Function]}
+          placeholder="http"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "height": 40,
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View>
+        <Text>
+          IP:
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          onChangeText={[Function]}
+          placeholder="127.0.0.1"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "height": 40,
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View>
+        <Text>
+          Port:
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          onChangeText={[Function]}
+          placeholder="80"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "height": 40,
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View>
+        <Text>
+          use fake requests: Utiliser des fausses requetes (desactiver pour envoyer les requetes vers l'api):
+        </Text>
+        <AndroidSwitch
+          accessibilityRole="switch"
+          enabled={true}
+          on={false}
+          onChange={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+        />
+      </View>
+      <Text>
+        Au cas où il y ai des bugs :
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessibilityState={Object {}}
+        accessible={true}
+        focusable={true}
+        nativeBackgroundAndroid={
+          Object {
+            "attribute": "selectableItemBackground",
+            "rippleRadius": undefined,
+            "type": "ThemeAttrAndroid",
+          }
+        }
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#2196F3",
+            "borderRadius": 2,
+            "elevation": 4,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontWeight": "500",
+              "margin": 8,
+              "textAlign": "center",
+            }
+          }
+        >
+          REMETTRE PAR DAFAUT
+        </Text>
+      </View>
+    </View>
+  </View>,
+  " ",
+]
+`;

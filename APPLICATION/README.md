@@ -50,3 +50,6 @@ Les tests sont fait avec jest-expo https://www.npmjs.com/package/jest-expo
 
 Lancer les test pour ios et android:
 `npm test`
+
+Pour update les snapshots :
+`npm test -- --updateSnapshot`

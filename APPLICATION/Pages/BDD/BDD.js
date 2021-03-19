@@ -2,9 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useContext, useEffect, useState, useCallback} from 'react';
 import { FlatList, Button, Text, View, SafeAreaView, RefreshControl, ScrollView} from 'react-native';
 import 'react-native-gesture-handler';
-import api from './api'
-import styles from './Styles'
-import { ConfigContext } from "./ConfigProvider";
+import api from '../../Api/api'
+import styles from '../../Styles'
+import { ConfigContext } from "../../Config/ConfigProvider"
 
 /* Meme logique que dans ./porte.js */
 
