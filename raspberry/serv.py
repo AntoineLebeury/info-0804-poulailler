@@ -1,9 +1,16 @@
-from sense_hat import SenseHat
-import mysql.connector
+#from sense_hat import SenseHat
+#import mysql.connector
 from datetime import datetime
 import time
 import requests
 import socket
+import unittest2 as unittest
+
+
+#Test unitaire
+class MyTest(unittest.TestCase):
+    def test(self):
+        self.assertEqual(fermeture_porte())
 
 #Le raspberry vas attendre des demandes de l'api pour certaines fonctions
 serveur = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -11,8 +18,9 @@ serveur.bind(('', 50000))	# Écoute sur le port 50000
 serveur.listen(5)
 
 #Preparation de mon capteur
-sense = SenseHat()
+#sense = SenseHat()
 porte_ouverte = 0
+
 
 #Fonction permettant de savoir le statu de la porte 0 = Ferme; 1 = ouverte
 def statue_porte():
@@ -47,12 +55,12 @@ def fermeture_porte():
         return "Une erreur est survenu"
     
 #Fonction renvoyant les données capte par le raspberry ainsi que l'heure du captage
-def captage():
-    temp = sense.get_temperature()
-    hum = sense.get_humidity()
-    pres = sense.get_pressure()
-    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    return (temp,hum, pres, now)
+#def captage():
+    #temp = sense.get_temperature()
+    #hum = sense.get_humidity()
+    #pres = sense.get_pressure()
+    #now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    #return (temp,hum, pres, now)
 
 #Le programme vas toujours tourner en attende de demande de l'api
 while True:
@@ -80,4 +88,3 @@ while True:
     #Si c'est trois il veux fermer la porte
     if requete.decode("utf-8")=="3":
         reponse = str(fermeture_porte())
-    
